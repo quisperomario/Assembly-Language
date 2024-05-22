@@ -1,0 +1,18 @@
+printChair macro chair
+    PUSHA
+    MOV AH,02H
+    MOV DL,chair
+    INT 21H
+    POPA
+endm
+
+.code
+
+cleardisplay proc
+    MOV AX,06H ;limpia la pantalla
+    MOV BH,07H ; primero es color de pantalla y segundo color de texto
+    MOV CX,0H ; desde donde empieza a limpiar la pantalla
+    MOV DX,184FH ; hasta donde limpiar
+    INT 10H
+    RET
+endp
